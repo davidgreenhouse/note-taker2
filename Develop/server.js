@@ -30,31 +30,26 @@ app.get('/api/notes', (req, res) => {
   }
 });
 
-app.post('/api/notes', (req, res) => {
-  req.body.id = uuidv4();
-  db.push(req.body)
-  fs.writeFile('./db/db.json', JSON.stringify(db), (err) => {
-    if (err) {
-      throw err
-    }
-    console.log('The note has been saved.')
-    res.json(db)
+/* app.post('', (req, res) => {
+    req.body.id = uuidv4();
+      console.log('The note has been saved.')
+      res.json(db)
+    })
   })
-})
-
-app.delete('/api/notes/:id', (req, res) =>{
-  const { id } = req.params;
-  const deletedNote = db.find(note => note.id === id) 
-  db = db.filter(note => note.id != id)
-  fs.writeFile('./db/db.json', JSON.stringify(db), (err) => {
-    if (err) {
-      throw err
-    }
-    console.log('The note has been deleted.')
-    res.json(db)
+  
+  app.delete('/api/notes/:id', (req, res) =>{
+    const { id } = ;
+    db = db.filter(note => note.id != id)
+    fs.writeFile( (err) => {
+      if (err) {
+        throw err
+      }
+      console.log()
+      res.json(db)
+    })
   })
-})
+  
+  app.listen(PORT, () =>
+  );
 
-app.listen(PORT, () =>
-  console.log(`App listening at http://localhost:${PORT} 🚀`)
-);
+ */
